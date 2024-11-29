@@ -8,7 +8,7 @@ namespace Snake
 {
     public struct FormParams
     {
-        public static int Width = 800;
-        public static int Height = 600;
+        public static int Width;
+        public static int Height;
     }
 }

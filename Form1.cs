@@ -2,7 +2,7 @@ namespace Snake
 {
     public partial class Form1 : Form
     {
-        private readonly int CELL_SIZE = 30;
+        private const int CELL_SIZE = 30;
         private int CurrentSize;
         private int Score;
         private bool EscState;
@@ -20,9 +20,9 @@ namespace Snake
         private void InitializeGame()
         {
             DoubleBuffered = true;
-            this.Width = FormParams.Width;
-            this.Height = FormParams.Height;
-            Snake = new List<Point>(150) { new Point(420, 300), new Point(420, 270) };
+            FormParams.Width = this.Width;
+            FormParams.Height = this.Height;
+            Snake = new List<Point>(512) { new Point(420, 300), new Point(420, 270) };
             CurrentSize = 2;
             Score = 0;
             EscState = true;
@@ -119,13 +119,13 @@ namespace Snake
         {
             foreach (Point snake in Snake)
             {
-                g.FillRectangle(Brushes.Green, snake.X, snake.Y, CELL_SIZE, CELL_SIZE);
+                g.FillRectangle(new SolidBrush(Color.FromArgb(82, 242, 125)), snake.X, snake.Y, CELL_SIZE, CELL_SIZE);
             }
         }
 
         private void DrawFood(Graphics g)
         {
-            g.FillRectangle(Brushes.DarkRed, Food.FoodCoords.X, Food.FoodCoords.Y, CELL_SIZE, CELL_SIZE);
+            g.FillRectangle(Food.BrushColor, Food.FoodCoords.X, Food.FoodCoords.Y, CELL_SIZE, CELL_SIZE);
         }
 
         private void SetDirection(Direction restrictedDir, Direction newDir)
