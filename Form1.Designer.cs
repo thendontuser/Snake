@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             timer1 = new System.Windows.Forms.Timer(components);
             ScoreLabel = new Label();
             ScoreNumberLabel = new Label();
+            GameStateLbl = new Label();
             SuspendLayout();
             // 
             // timer1
@@ -61,17 +63,31 @@
             ScoreNumberLabel.TabIndex = 1;
             ScoreNumberLabel.Text = "0";
             // 
+            // GameStateLbl
+            // 
+            GameStateLbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            GameStateLbl.AutoSize = true;
+            GameStateLbl.Font = new Font("Showcard Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            GameStateLbl.ForeColor = SystemColors.Control;
+            GameStateLbl.Location = new Point(1278, 9);
+            GameStateLbl.Name = "GameStateLbl";
+            GameStateLbl.Size = new Size(52, 21);
+            GameStateLbl.TabIndex = 2;
+            GameStateLbl.Text = "Play";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 32, 32);
             ClientSize = new Size(1342, 696);
+            Controls.Add(GameStateLbl);
             Controls.Add(ScoreNumberLabel);
             Controls.Add(ScoreLabel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            Text = "Snake Game";
+            Text = "Snake";
             Paint += Form1_Paint;
             KeyDown += Form1_KeyDown;
             ResumeLayout(false);
@@ -83,5 +99,6 @@
         private System.Windows.Forms.Timer timer1;
         private Label ScoreLabel;
         private Label ScoreNumberLabel;
+        private Label GameStateLbl;
     }
 }

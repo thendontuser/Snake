@@ -65,6 +65,7 @@ namespace Snake
                 point.Y = Snake[i].Y;
                 Snake[i + 1] = point;
             }
+
             switch (Direction)
             {
                 case Direction.Down:
@@ -85,6 +86,7 @@ namespace Snake
                     break;
             }
             Snake[0] = point;
+
             if (IsEatFood())
             {
                 if (CurrentSize < Snake.Capacity)
@@ -153,11 +155,13 @@ namespace Snake
             {
                 timer1.Stop();
                 EscState = false;
+                GameStateLbl.Text = "Pause";
             }
             else
             {
                 timer1.Start();
                 EscState = true;
+                GameStateLbl.Text = "Play";
             }
         }
 
